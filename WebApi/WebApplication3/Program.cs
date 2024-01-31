@@ -27,6 +27,8 @@ namespace WebApplication3
                 app.UseSwaggerUI();
             }
 
+            app.UseMiddleware<RequestResponseLoggingMiddleware>();
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
