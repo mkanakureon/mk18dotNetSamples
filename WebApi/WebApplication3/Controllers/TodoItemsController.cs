@@ -44,7 +44,7 @@ namespace WebApplication3.Controllers
                 return NotFound();
             }
 
-            return todoItem;
+            return Ok(todoItem);
         }
 
         [HttpPut("{id}")]
