@@ -42,10 +42,8 @@ namespace WebApplication3Test.Controllers
             //var response = await client.GetAsync(url);
             var response = await client.PostAsJsonAsync(url, todoItem);
             // Assert
-            response.EnsureSuccessStatusCode(); // Status Code 200-299
-            //Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            Assert.Equal(HttpStatusCode.Created, response.StatusCode); // ステータスコードが201であることを確認
             var responseString = await response.Content.ReadAsStringAsync();
-
 
             // Get
             url = "api/TodoItems/1";
@@ -61,10 +59,28 @@ namespace WebApplication3Test.Controllers
             //var response = await client.GetAsync(url);
             response = await client.PutAsJsonAsync(url, todoItem);
             // Assert
-            response.EnsureSuccessStatusCode(); // Status Code 200-299
-            //Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+
+            // Delete
+            url = "api/TodoItems/1";
+            response = await client.DeleteAsync(url);
+            // Assert
+            Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
             responseString = await response.Content.ReadAsStringAsync();
 
+            // Get
+            url = "api/TodoItems/1";
+            response = await client.GetAsync(url);
+            // Assert
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+            responseString = await response.Content.ReadAsStringAsync();
+
+            // Delete
+            url = "api/TodoItems/1";
+            response = await client.DeleteAsync(url);
+            // Assert
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+            responseString = await response.Content.ReadAsStringAsync();
 
         }
     }
