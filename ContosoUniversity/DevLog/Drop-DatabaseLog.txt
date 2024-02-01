@@ -1,0 +1,28 @@
+各パッケージのライセンスは、パッケージの所有者からパッケージのユーザーに付与されます。NuGet は、サードパーティのパッケージに対して一切責任を負わず、いかなるライセンスも付与しません。パッケージに含まれている依存関係に対して追加のライセンスが適用されることがあります。依存関係を確認するには、パッケージ ソース (フィード) URL にアクセスしてください。
+
+パッケージ マネージャー コンソール ホストのバージョン 6.8.0.131
+
+利用可能なすべての NuGet コマンドを参照するには、'get-help NuGet' を入力します。
+
+PM> Drop-Database -Confirm
+Build started...
+Build succeeded.
+確認
+この操作を実行しますか?
+対象 "database 'SchoolContext-bfd052bc-34a4-4476-8ff8-88b152df766b' on server '(localdb)\mssqllocaldb'" に対して操作 "Drop-Database" を実行しています。
+[Y] はい(Y)  [A] すべて続行(A)  [N] いいえ(N)  [L] すべて無視(L)  [S] 中断(S)  [?] ヘルプ (既定では "Y"):
+Dropping database 'SchoolContext-bfd052bc-34a4-4476-8ff8-88b152df766b' on server '(localdb)\mssqllocaldb'.
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      IF SERVERPROPERTY('EngineEdition') <> 5
+      BEGIN
+          ALTER DATABASE [SchoolContext-bfd052bc-34a4-4476-8ff8-88b152df766b] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+      END;
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (47ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      DROP DATABASE [SchoolContext-bfd052bc-34a4-4476-8ff8-88b152df766b];
+Successfully dropped database 'SchoolContext-bfd052bc-34a4-4476-8ff8-88b152df766b'.
+PM> 
