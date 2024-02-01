@@ -9,10 +9,12 @@ namespace WebApplication3.Controllers
     {
 
         private readonly TodoContext _context;
+        private readonly ILogger<TodoItemsController> _logger;
 
-        public TodoItemsController(TodoContext context)
+        public TodoItemsController(TodoContext context, ILogger<TodoItemsController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         private bool TodoItemExists(long id)
@@ -21,8 +23,11 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem)
+        public async Task<ActionResult<TodoItem>> PostTodoItem([FromBody] TodoItem todoItem)
         {
+            var contentType = Request.Headers["Content-Type"].ToString();
+            _logger.LogInformation($"PostTodoItem Content-Type: {contentType}");
+
             _context.TodoItems.Add(todoItem);
             await _context.SaveChangesAsync();
 
@@ -43,7 +48,7 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
+        public async Task<IActionResult> PutTodoItem(long id, [FromBody] TodoItem todoItem)
         {
             if (id != todoItem.Id)
             {

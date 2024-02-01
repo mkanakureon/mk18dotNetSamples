@@ -1,4 +1,6 @@
-﻿namespace WebApplication3
+﻿using System.Text;
+
+namespace WebApplication3
 {
     public class RequestResponseLoggingMiddleware
     {
@@ -11,8 +13,12 @@
             _logger = logger;
         }
 
-        public async Task Invoke(HttpContext context)
+        public async Task InvokeAsync(HttpContext context)
         {
+            // リクエストの内容を読み取り
+            var requestBodyContent = await ReadRequestBody(context.Request);
+            _logger.LogInformation($"Request Body: {requestBodyContent}");
+
             // リクエストをログに記録
             _logger.LogInformation($"Incoming request: {context.Request.Method} {context.Request.Path}");
 
@@ -36,6 +42,19 @@
                 // レスポンスを元のストリームにコピー
                 await responseBody.CopyToAsync(originalBodyStream);
             }
+
+        }
+
+        private async Task<string> ReadRequestBody(HttpRequest request)
+        {
+            request.EnableBuffering();
+
+            var buffer = new byte[Convert.ToInt32(request.ContentLength)];
+            await request.Body.ReadAsync(buffer, 0, buffer.Length);
+            var requestBody = Encoding.UTF8.GetString(buffer);
+            request.Body.Seek(0, SeekOrigin.Begin);
+
+            return requestBody;
         }
     }
 }

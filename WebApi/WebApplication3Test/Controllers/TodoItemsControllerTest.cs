@@ -41,7 +41,6 @@ namespace WebApplication3Test.Controllers
             var url = "api/TodoItems";
             //var response = await client.GetAsync(url);
             var response = await client.PostAsJsonAsync(url, todoItem);
-
             // Assert
             response.EnsureSuccessStatusCode(); // Status Code 200-299
             //Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -51,7 +50,16 @@ namespace WebApplication3Test.Controllers
             // Get
             url = "api/TodoItems/1";
             response = await client.GetAsync(url);
+            // Assert
+            response.EnsureSuccessStatusCode(); // Status Code 200-299
+            //Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            responseString = await response.Content.ReadAsStringAsync();
 
+            // Put
+            todoItem.Name = "namePut";
+            url = "api/TodoItems/1";
+            //var response = await client.GetAsync(url);
+            response = await client.PutAsJsonAsync(url, todoItem);
             // Assert
             response.EnsureSuccessStatusCode(); // Status Code 200-299
             //Assert.Equal(HttpStatusCode.OK, response.StatusCode);
