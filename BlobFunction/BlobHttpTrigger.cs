@@ -18,7 +18,7 @@ namespace BlobFunction
         private static readonly BlobContainerClient ContainerClient = BlobServiceClient.GetBlobContainerClient("nobel-script");
 
 
-        [FunctionName("BlobHttpTrigger")]
+        [FunctionName("BlobHttpTriggerFunc")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
