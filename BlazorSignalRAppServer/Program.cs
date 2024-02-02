@@ -1,6 +1,14 @@
 using BlazorSignalRAppServer.Components;
+using BlazorSignalRAppServer.Hubs;
+using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddResponseCompression(opts =>
+{
+    opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+          new[] { "application/octet-stream" });
+});
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
@@ -23,5 +31,9 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
+
+app.MapHub<ChatHub>("/chathub");
+
+app.UseResponseCompression();
 
 app.Run();
