@@ -14,7 +14,9 @@ namespace BlobFunction
     {
         // Blobサービスクライアントの初期化
         private static readonly BlobServiceClient BlobServiceClient = new BlobServiceClient(Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING"));
-        private static readonly BlobContainerClient ContainerClient = BlobServiceClient.GetBlobContainerClient("quickstartblobs7489e86e-5ab5-403f-8ea4-7adbbad87d00");
+        // private static readonly BlobContainerClient ContainerClient = BlobServiceClient.GetBlobContainerClient("quickstartblobs7489e86e-5ab5-403f-8ea4-7adbbad87d00");
+        private static readonly BlobContainerClient ContainerClient = BlobServiceClient.GetBlobContainerClient("nobel-script");
+
 
         [FunctionName("BlobHttpTrigger")]
         public static async Task<IActionResult> Run(
@@ -46,6 +48,7 @@ namespace BlobFunction
             else if (req.Method == HttpMethods.Get)
             {
                 string fileName = req.Query["filename"];
+                log.LogInformation(fileName);
                 if (string.IsNullOrEmpty(fileName))
                 {
                     return new BadRequestObjectResult("Please provide a filename");
