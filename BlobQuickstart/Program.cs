@@ -2,10 +2,28 @@
 using Azure.Storage.Blobs.Models;
 using Azure.Identity;
 
+/***
 // TODO: Replace <storage-account-name> with your actual storage account name
 var blobServiceClient = new BlobServiceClient(
         new Uri("https://mukutest.blob.core.windows.net"),
         new DefaultAzureCredential());
+***/
+
+
+// 接続文字列の構成
+// Retrieve the connection string for use with the application. 
+string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING", EnvironmentVariableTarget.User);
+if (connectionString==null)
+{
+    // エラーメッセージをコンソールに出力
+    Console.WriteLine($"エラー: AZURE_STORAGE_CONNECTION_STRINGがない");
+
+    // エラー終了コードでプログラムを終了
+    Environment.Exit(1);
+}
+
+// Create a BlobServiceClient object 
+var blobServiceClient = new BlobServiceClient(connectionString);
 
 //Create a unique name for the container
 string containerName = "quickstartblobs" + Guid.NewGuid().ToString();
