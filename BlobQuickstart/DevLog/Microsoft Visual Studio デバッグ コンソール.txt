@@ -1,0 +1,14 @@
+Uploading to Blob storage as blob:
+         https://mukutest.blob.core.windows.net/quickstartblobs7489e86e-5ab5-403f-8ea4-7adbbad87d00/quickstarte9015ba2-8f61-43d3-a214-e6521bf2d131.txt
+
+Listing blobs...
+        quickstarte9015ba2-8f61-43d3-a214-e6521bf2d131.txt
+
+Downloading blob to
+        data\quickstarte9015ba2-8f61-43d3-a214-e6521bf2d131DOWNLOADED.txt
+
+Done
+
+C:\git\mk18dotNetSamples\BlobQuickstart\bin\Debug\net8.0\BlobQuickstart.exe (プロセス 36100) は、コード 0 で終了しました。
+デバッグが停止したときに自動的にコンソールを閉じるには、[ツール] -> [オプション] -> [デバッグ] -> [デバッグの停止時に自動的にコンソールを閉じる] を有効にします。
+このウィンドウを閉じるには、任意のキーを押してください...

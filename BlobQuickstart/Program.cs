@@ -66,6 +66,7 @@ Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
 // Download the blob's contents and save it to a file
 await blobClient.DownloadToAsync(downloadFilePath);
 
+/***
 // Clean up
 Console.Write("Press any key to begin clean up");
 Console.ReadLine();
@@ -76,5 +77,6 @@ await containerClient.DeleteAsync();
 Console.WriteLine("Deleting the local source and downloaded files...");
 File.Delete(localFilePath);
 File.Delete(downloadFilePath);
+***/
 
 Console.WriteLine("Done");
