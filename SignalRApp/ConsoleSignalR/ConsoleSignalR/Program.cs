@@ -1,10 +1,48 @@
 ﻿// クライアント側
+using ConsoleSignalR;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
 
 class Program
 {
     static async Task Main(string[] args)
+    {
+        Console.WriteLine("Main");
+        GetId();
+
+    }
+
+
+    static void GetId()
+    {
+        Console.WriteLine("GetId");
+        /***
+        var cpuId = GetIdHelper.GetCpuId();
+        Console.WriteLine(cpuId);
+
+        var uuid = GetIdHelper.GetSystemUUID();
+        Console.WriteLine(uuid);
+
+        GetIdHelper.GetOsVersion();
+        ***/
+
+        var deviceId = GetIdHelper.GetDeviceId();
+        Console.WriteLine(deviceId);
+
+    }       
+
+    static async Task testConnectionManager()
+    {
+        var connectionManager = new ConnectionManager("http://localhost:5157/chathub");
+        await connectionManager.ConnectAsync();
+        var user = "user";
+        await connectionManager.SendMessageAsync(user, "message1");
+        await connectionManager.SendMessageAsync(user, "message2");
+        await connectionManager.SendMessageAsync(user, "message3");
+
+    }
+
+    static async Task test()
     {
         var connection = new HubConnectionBuilder()
             .WithUrl("http://localhost:5157/chathub")
