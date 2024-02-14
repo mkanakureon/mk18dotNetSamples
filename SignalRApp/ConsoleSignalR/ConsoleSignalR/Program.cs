@@ -9,6 +9,7 @@ class Program
     {
         Console.WriteLine("Main");
         GetId();
+        await testConnectionManager();
 
     }
 
