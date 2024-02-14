@@ -1,4 +1,4 @@
-namespace WebApplication3Test
+namespace SoSyaGeAppTest
 {
     public class UnitTest1
     {

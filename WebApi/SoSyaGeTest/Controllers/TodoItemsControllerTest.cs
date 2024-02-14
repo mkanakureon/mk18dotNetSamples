@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace WebApplication3Test.Controllers
+namespace SoSyaGeAppTest.Controllers
 {
     public class TodoItemsControllerTest : IClassFixture<CustomWebApplicationFactory<Program>>
     {
