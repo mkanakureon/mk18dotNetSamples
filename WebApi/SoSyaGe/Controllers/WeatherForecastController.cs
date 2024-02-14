@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WebApplication3;
 
-namespace WebApplication3.Controllers
+namespace SoSyaGeApp.Controllers
 {
     [ApiController]
     [Route("[controller]")]

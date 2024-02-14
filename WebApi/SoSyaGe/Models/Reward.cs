@@ -1,6 +1,4 @@
-﻿using SoSyaGeServer.Db;
-
-namespace SoSyaGeServer.Model
+﻿namespace SoSyaGeApp.Models
 {
     public class Reward
     {

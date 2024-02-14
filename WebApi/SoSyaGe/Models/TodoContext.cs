@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace WebApplication3.Models
+namespace SoSyaGeApp.Models
 {
     public class TodoContext : DbContext
     {

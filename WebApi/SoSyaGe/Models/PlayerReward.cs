@@ -1,4 +1,4 @@
-﻿namespace SoSyaGeServer.Model
+﻿namespace SoSyaGeApp.Models
 {
     public class PlayerReward
     {

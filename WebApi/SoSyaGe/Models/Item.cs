@@ -1,4 +1,6 @@
-﻿namespace SoSyaGeServer.Model
+﻿using SoSyaGeApp.Models;
+
+namespace SoSyaGeServer.Model
 {
     public class Item
     {

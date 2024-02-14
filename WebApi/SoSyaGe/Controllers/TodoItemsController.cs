@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebApplication3.Models;
+using SoSyaGeApp.Models;
 
-namespace WebApplication3.Controllers
+namespace SoSyaGeApp.Controllers
 {
     [Route("api/[controller]")]
     public class TodoItemsController : ControllerBase

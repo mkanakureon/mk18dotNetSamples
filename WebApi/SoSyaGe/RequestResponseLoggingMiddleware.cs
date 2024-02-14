@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace WebApplication3
+namespace SoSyaGeApp
 {
     public class RequestResponseLoggingMiddleware
     {

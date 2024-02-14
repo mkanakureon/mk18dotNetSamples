@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using WebApplication3.Models;
+using SoSyaGeApp.Models;
 
-namespace WebApplication3
+namespace SoSyaGeApp
 {
     public partial class Program
     {

@@ -1,4 +1,6 @@
-﻿namespace SoSyaGeServer.Model
+﻿using SoSyaGeServer.Model;
+
+namespace SoSyaGeApp.Models
 {
     public class Character
     {
