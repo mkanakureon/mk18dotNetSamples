@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SoSyaGeApp.Models;
+using System.Diagnostics;
 
 namespace SoSyaGeApp
 {
@@ -7,6 +8,7 @@ namespace SoSyaGeApp
     {
         public static void Main(string[] args)
         {
+            Debug.WriteLine("Main");
 
             var builder = WebApplication.CreateBuilder(args);
 
@@ -34,8 +36,10 @@ namespace SoSyaGeApp
             app.UseAuthorization();
 
             app.MapControllers();
-
+            Debug.WriteLine("Main-2");
             app.Run();
+
+            Debug.WriteLine("Main end");
         }
     }
 }

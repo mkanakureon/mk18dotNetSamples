@@ -83,6 +83,8 @@ namespace SoSyaGeAppTest.Controllers
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
             responseString = await response.Content.ReadAsStringAsync();
 
+            Debug.WriteLine("Test end");
+
         }
     }
 }
